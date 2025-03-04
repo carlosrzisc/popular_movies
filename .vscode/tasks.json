@@ -1,0 +1,53 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dart",
+			"command": "dart",
+			"args": [
+				"run",
+				"build_runner",
+				"build",
+				"--delete-conflicting-outputs"
+			],
+			"problemMatcher": [
+				"$dart-build_runner"
+			],
+			"group": "build",
+			"label": "dart: dart run build_runner build --delete-conflicting-outputs",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"gen-l10n",
+			],
+			"group": "build",
+			"label": "flutter: flutter gen-l10n",
+			"detail": ""
+		},
+		{
+			"type": "dart",
+			"command": "dart",
+			"args": [
+				"fix",
+				"--apply",
+			],
+			"group": "build",
+			"label": "dart: dart fix --apply",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"analyze",
+			],
+			"group": "build",
+			"label": "flutter: flutter analyze",
+			"detail": ""
+		},
+		
+	]
+}
