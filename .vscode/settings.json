@@ -1,0 +1,47 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "dart.lineLength": 80,
+  "dart.enableSdkFormatter": true,
+  "dart.buildRunnerAdditionalArgs": [
+    "--delete-conflicting-outputs"
+  ],
+  "dart.warnWhenEditingFilesOutsideWorkspace": true,
+  "dart.debugSdkLibraries": false,
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      120
+    ],
+    "editor.wordBasedSuggestions": "matchingDocuments",
+    "files.insertFinalNewline": true
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "vscode.configuration-editing"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // "files.exclude": {
+  //   "**/*.freezed.dart": true,
+  //   "**/*.g.dart": true,
+  //   "**/*.gr.dart": true
+  // },
+  "material-icon-theme.folders.associations": {
+    "customFolderName": "src",
+    "sample": "dist"
+  },
+  "explorer.fileNesting.enabled": true,
+  "explorer.compactFolders": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata,analysis_options.yaml, flutter_launcher*.yaml, flutter_native_splash.yaml, l10n.yaml",
+    //"*.dart": "${capture}.g.dart, ${capture}.freezed.dart"
+  }
+}
