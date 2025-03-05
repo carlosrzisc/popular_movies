@@ -28,11 +28,12 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  // "files.exclude": {
-  //   "**/*.freezed.dart": true,
-  //   "**/*.g.dart": true,
-  //   "**/*.gr.dart": true
-  // },
+  "files.exclude": {
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true,
+    "**/*.gr.dart": true,
+    "**/*.config.dart": true
+  },
   "material-icon-theme.folders.associations": {
     "customFolderName": "src",
     "sample": "dist"
@@ -41,7 +42,7 @@
   "explorer.compactFolders": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata,analysis_options.yaml, flutter_launcher*.yaml, flutter_native_splash.yaml, l10n.yaml",
-    //"*.dart": "${capture}.g.dart, ${capture}.freezed.dart"
+    "pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata,analysis_options.yaml, flutter_launcher*.yaml, flutter_native_splash.yaml, l10n.yaml"
+    // "*.dart": "${capture}.g.dart, ${capture}.freezed.dart"
   }
 }

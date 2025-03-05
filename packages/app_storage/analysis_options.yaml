@@ -1,0 +1,13 @@
+include: package:very_good_analysis/analysis_options.5.0.0.yaml
+
+analyzer:
+  exclude:
+    - lib/**.*.dart
+
+linter:
+  rules:
+    depend_on_referenced_packages: false    
+    library_private_types_in_public_api: false
+    use_build_context_synchronously: false
+    public_member_api_docs: false
+    lines_longer_than_80_chars: false
