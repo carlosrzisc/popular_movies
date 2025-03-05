@@ -50,8 +50,6 @@ class AppColors {
     onSecondaryContainer: Color(0xFF696969),
     error: Color(0xFFDD4C4C),
     onError: Color(0xFFFFFFFF),
-    background: Color(0xFF3092D0),
-    onBackground: Color(0xFFFFFFFF),
     surface: Color(0xFFFFFFFF),
     onSurface: Color(0xFF0D0D0D),
   );

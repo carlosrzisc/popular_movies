@@ -25,6 +25,7 @@ dependencies:
   movies_api: ^0.0.1
   app_storage: ^0.0.1
   lottie: ^3.3.1
+  rxdart: ^0.28.0
 
 workspace:
   - packages/movies_api
@@ -33,7 +34,7 @@ workspace:
 dev_dependencies:
   auto_route_generator: ^10.0.1
   bloc_test: ^10.0.0
-  build_runner: ^2.4.4
+  build_runner: ^2.4.15
   flutter_launcher_icons: ^0.14.3
   flutter_native_splash: ^2.3.0
   flutter_test:

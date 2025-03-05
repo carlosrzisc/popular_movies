@@ -18,5 +18,7 @@ abstract class RegisterModule {
   AppRouter get appRouter => AppRouter();
 
   @lazySingleton
-  MoviesApi get api => MoviesApi(apiKey: '');
+  MoviesApi get api {
+    return MoviesApi(apiToken: const String.fromEnvironment('API_TOKEN'));
+  }
 }

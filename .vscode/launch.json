@@ -7,7 +7,9 @@
       "request": "launch",
       "type": "dart",
       "args": [
-        "--debug"
+        "--debug",
+        "--dart-define-from-file",
+        ".vscode/config.json"
       ]
     },
     {
@@ -16,7 +18,9 @@
       "request": "launch",
       "type": "dart",
       "args": [
-        "--release"
+        "--release",
+        "--dart-define-from-file",
+        ".vscode/config.json"
       ]
     },
   ]

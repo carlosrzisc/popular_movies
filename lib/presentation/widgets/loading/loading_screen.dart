@@ -51,8 +51,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       children: [
         OverflowBox(
           child: SizedBox(
-            height: 100,
-            width: 100,
+            height: 150,
             child: Lottie.asset('assets/lottie/loading.json'),
           ),
         ),
