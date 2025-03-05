@@ -12,11 +12,13 @@ part 'movies_api.g.dart';
 abstract class MoviesApi {
   factory MoviesApi._(Dio dio, {String? baseUrl}) = _MoviesApi;
 
-  factory MoviesApi({required String apiKey, String? baseUrl}) => MoviesApi._(
+  factory MoviesApi({required String apiToken, String? baseUrl}) => MoviesApi._(
     Dio(
       BaseOptions(
-        headers: {'Accept': 'application/json'},
-        queryParameters: {'apiKey': apiKey},
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $apiToken',
+        },
       ),
     )..interceptors.add(DioCacheInterceptor(options: cacheOptions)),
     baseUrl: baseUrl,
