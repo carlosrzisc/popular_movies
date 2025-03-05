@@ -5,4 +5,5 @@ class SplashState with _$SplashState {
   const factory SplashState.initial() = _Initial;
   const factory SplashState.loadInProgress() = _LoadInProgress;
   const factory SplashState.loaded() = _Loaded;
+  const factory SplashState.loadFailure() = _LoadFailure;
 }

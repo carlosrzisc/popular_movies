@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movies_api/movies_api.dart';
+import 'package:popular_movies/app/routing/app_router.dart';
 import 'package:popular_movies/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:popular_movies/presentation/screens/home/view/widgets/movies_gridview.dart';
+import 'package:popular_movies/presentation/theme/app_colors.dart';
+import 'package:popular_movies/presentation/utilities/extensions/context_extensions.dart';
 import 'package:popular_movies/presentation/widgets/loading/loading_screen.dart';
 
 class HomePresenter extends StatelessWidget {
@@ -29,17 +32,34 @@ class HomePresenter extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return Stack(
-            children: [
-              if (state is LoadInProgress) ...[
-                const LoadingScreen(),
-              ] else if (state is LoadMoviesSuccess) ...[
-                MoviesGridView(
-                  state.movies,
-                  onItemTap: (movie) => _onMovieSelected(context, movie),
-                ),
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Stack(
+              children: [
+                if (state is LoadInProgress) ...[
+                  const LoadingScreen(),
+                ] else if (state is LoadMoviesSuccess) ...[
+                  OrientationBuilder(
+                    builder: (context, orientation) {
+                      return MoviesGridView(
+                        state.movies,
+                        onItemTap: (movie) => _onMovieSelected(context, movie),
+                        columnsCount:
+                            orientation == Orientation.landscape ? 4 : 2,
+                      );
+                    },
+                  ),
+                ] else if (state is LoadMoviesFailure) ...[
+                  Text(
+                    context.l10n.genericError,
+                    textAlign: TextAlign.center,
+                    style: context.textTheme.bodyLarge?.copyWith(
+                      color: AppColors.error,
+                    ),
+                  ),
+                ],
               ],
-            ],
+            ),
           );
         },
         buildWhen: (previous, current) => current is! LoadInProgress,
@@ -47,5 +67,7 @@ class HomePresenter extends StatelessWidget {
     );
   }
 
-  void _onMovieSelected(BuildContext context, TMovie movie) {}
+  void _onMovieSelected(BuildContext context, TMovie movie) {
+    context.router.push(MovieDetailsRoute(movie: movie));
+  }
 }

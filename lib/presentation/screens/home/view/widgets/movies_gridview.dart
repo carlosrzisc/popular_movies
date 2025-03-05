@@ -5,9 +5,15 @@ import 'package:popular_movies/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:popular_movies/presentation/screens/home/view/widgets/movie_item.dart';
 
 class MoviesGridView extends StatefulWidget {
-  const MoviesGridView(this.movies, {this.onItemTap, super.key});
+  const MoviesGridView(
+    this.movies, {
+    this.onItemTap,
+    super.key,
+    this.columnsCount = 2,
+  });
   final List<TMovie> movies;
   final void Function(TMovie)? onItemTap;
+  final int columnsCount;
 
   @override
   State<MoviesGridView> createState() => _MoviesGridViewState();
@@ -15,11 +21,6 @@ class MoviesGridView extends StatefulWidget {
 
 class _MoviesGridViewState extends State<MoviesGridView> {
   final _scrollController = ScrollController();
-  static const gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 2,
-    crossAxisSpacing: 10,
-    childAspectRatio: 0.65,
-  );
 
   @override
   void initState() {
@@ -31,12 +32,22 @@ class _MoviesGridViewState extends State<MoviesGridView> {
   Widget build(BuildContext context) {
     return GridView.builder(
       itemCount: widget.movies.length,
-      gridDelegate: gridDelegate,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: widget.columnsCount,
+        crossAxisSpacing: 10,
+        childAspectRatio: 0.63,
+      ),
       padding: const EdgeInsets.only(top: 130),
       itemBuilder:
-          (_, index) => MovieItem(
-            widget.movies[index],
-            onTap: () => widget.onItemTap?.call(widget.movies[index]),
+          (_, index) => Column(
+            children: [
+              Expanded(
+                child: MovieItem(
+                  widget.movies[index],
+                  onTap: () => widget.onItemTap?.call(widget.movies[index]),
+                ),
+              ),
+            ],
           ),
       controller: _scrollController,
     );
