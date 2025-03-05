@@ -112,6 +112,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No internet connection. Please check your connection and try again.'**
   String get noInternet;
+
+  /// No description provided for @reload.
+  ///
+  /// In en, this message translates to:
+  /// **'Reload'**
+  String get reload;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -50,12 +50,23 @@ class HomePresenter extends StatelessWidget {
                     },
                   ),
                 ] else if (state is LoadMoviesFailure) ...[
-                  Text(
-                    context.l10n.genericError,
-                    textAlign: TextAlign.center,
-                    style: context.textTheme.bodyLarge?.copyWith(
-                      color: AppColors.error,
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        context.l10n.genericError,
+                        textAlign: TextAlign.center,
+                        style: context.textTheme.bodyLarge?.copyWith(
+                          color: AppColors.error,
+                        ),
+                      ),
+                      FilledButton(
+                        onPressed:
+                            () =>
+                                context.read<HomeBloc>().add(HomeEvent.load()),
+                        child: Text(context.l10n.reload),
+                      ),
+                    ],
                   ),
                 ],
               ],

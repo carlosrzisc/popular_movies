@@ -16,4 +16,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noInternet => 'No internet connection. Please check your connection and try again.';
+
+  @override
+  String get reload => 'Reload';
 }
