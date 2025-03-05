@@ -104,8 +104,14 @@ abstract class AppLocalizations {
   /// No description provided for @genericError.
   ///
   /// In en, this message translates to:
-  /// **'Something went wrong.'**
+  /// **'Something went wrong. Make sure you are connected to the internet and try again.'**
   String get genericError;
+
+  /// No description provided for @noInternet.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection. Please check your connection and try again.'**
+  String get noInternet;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

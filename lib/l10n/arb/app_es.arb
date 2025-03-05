@@ -1,5 +1,6 @@
 {
     "@@locale": "es",
     "takingLong": "Esto esta tomando mas tiempo de lo esperado",
-    "genericError": "Algo salió mal."
+    "genericError": "Algo salió mal. Asegurate de estar conectado a internet e intenta de nuevo.",
+    "noInternet": "No hay conexión a internet. Por favor revisa tu conexión e intenta de nuevo."
 }

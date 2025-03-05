@@ -12,5 +12,6 @@ class AppRouter extends RootStackRouter {
   List<AutoRoute> get routes => [
     AutoRoute(page: SplashRoute.page, path: '/'),
     AutoRoute(page: HomeRoute.page),
+    AutoRoute(page: MovieDetailsRoute.page),
   ];
 }

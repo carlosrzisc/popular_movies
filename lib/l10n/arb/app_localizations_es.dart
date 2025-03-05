@@ -12,5 +12,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get takingLong => 'Esto esta tomando mas tiempo de lo esperado';
 
   @override
-  String get genericError => 'Algo salió mal.';
+  String get genericError => 'Algo salió mal. Asegurate de estar conectado a internet e intenta de nuevo.';
+
+  @override
+  String get noInternet => 'No hay conexión a internet. Por favor revisa tu conexión e intenta de nuevo.';
 }

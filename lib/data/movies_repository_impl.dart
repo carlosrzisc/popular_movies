@@ -33,10 +33,11 @@ class MoviesRepositoryImpl implements MoviesRepository {
           _moviesStreamController.hasValue
               ? _moviesStreamController.value
               : <TMovie>[];
-      hasReachedMax = page == response.totalPages;
+      hasReachedMax = page >= (response.totalPages ?? 1);
       page++;
 
-      _moviesStreamController.add([...currentList, ...movies]);
+      final allMovies = <TMovie>{...currentList, ...movies}.toList();
+      _moviesStreamController.add(allMovies);
     } catch (e) {
       _moviesStreamController.addError(e);
     }
