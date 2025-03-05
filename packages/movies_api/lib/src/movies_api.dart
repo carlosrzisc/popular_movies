@@ -4,7 +4,7 @@ import 'package:movies_api/src/api_cache_options.dart';
 import 'package:movies_api/src/api_endpoints.dart';
 import 'package:movies_api/src/model/genres_response.dart';
 import 'package:movies_api/src/model/movies_response.dart';
-import 'package:retrofit/http.dart';
+import 'package:retrofit/retrofit.dart';
 
 part 'movies_api.g.dart';
 

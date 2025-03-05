@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "program": "${workspaceFolder}/lib/main.dart",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--debug"
+      ]
+    },
+    {
+      "name": "Release",
+      "program": "${workspaceFolder}/lib/main.dart",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--release"
+      ]
+    },
+  ]
+}
