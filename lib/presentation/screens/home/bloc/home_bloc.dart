@@ -23,6 +23,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _SubscriptionRequested event,
     Emitter<HomeState> emit,
   ) async {
+    /// Fetch the movies from the repository and emit a state based on the result
     await emit.forEach<List<TMovie>>(
       _moviesRepository.movies,
       onData: HomeState.loadSuccess,
@@ -34,10 +35,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     if (state is LoadInProgress) return;
 
     emit(const HomeState.loadInProgress());
+
+    /// request the repository to load the next page of movies
     _moviesRepository.loadMore();
   }
 
-  Future<void> _onMovieSearch(_SearchMovie event, Emitter<HomeState> emit) async {
+  Future<void> _onMovieSearch(
+    _SearchMovie event,
+    Emitter<HomeState> emit,
+  ) async {
     emit(const HomeState.loadInProgress());
     final movies = await _moviesRepository.search(event.query);
     emit(HomeState.loadSuccess(movies));

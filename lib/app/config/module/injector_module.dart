@@ -8,6 +8,7 @@ import 'package:popular_movies/hive/table/hive_boxes.dart';
 import 'package:popular_movies/hive/table/hive_movie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// Register dependency injection module
 @module
 abstract class RegisterModule {
   @preResolve
