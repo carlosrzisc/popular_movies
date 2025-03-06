@@ -15,6 +15,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc(this._moviesRepository) : super(const HomeState.initial()) {
     on<_Load>(_onLoad);
     on<_SubscriptionRequested>(_onSubscriptionRequested);
+    on<_SearchMovie>(_onMovieSearch);
   }
   final MoviesRepository _moviesRepository;
 
@@ -34,5 +35,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     emit(const HomeState.loadInProgress());
     _moviesRepository.loadMore();
+  }
+
+  Future<void> _onMovieSearch(_SearchMovie event, Emitter<HomeState> emit) async {
+    emit(const HomeState.loadInProgress());
+    final movies = await _moviesRepository.search(event.query);
+    emit(HomeState.loadSuccess(movies));
   }
 }

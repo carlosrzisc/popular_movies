@@ -3,7 +3,9 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:popular_movies/app/config/injector.dart';
+import 'package:popular_movies/hive/hive_registrar.g.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -26,10 +28,16 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
-  Bloc.observer = const AppBlocObserver();
+  // Bloc.observer = const AppBlocObserver();
 
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+
+    // hive
+    await Hive.initFlutter();
+    Hive.registerAdapters();
+
+    // dependency injection
     await configure();
     runApp(await builder());
   }, (error, stackTrace) => log(error.toString(), stackTrace: stackTrace));
