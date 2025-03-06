@@ -24,6 +24,8 @@ Flutter app example that consumes TMDB API to show popular movies in a paginated
 
 This project is structured following the principles of Clean Architecture, which divides the code into distinct layers: presentation, domain, and data. This separation of concerns makes the codebase more maintainable, testable, and scalable.
 
+<img src="screenshots/diagram.png">
+
 ## Installation
 
 Once you have generated your project, make sure to execute the following steps to complete the project setup:
