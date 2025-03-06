@@ -18,7 +18,7 @@ Flutter app example that consumes TMDB API to show popular movies in a paginated
 
 ### Movie Details
 <img src="screenshots/scr4.png" width="200"/>
-<img src="screenshots/scr5.png" height="200"/>
+<img src="screenshots/src5.png" height="200">
 
 ## Architecture
 
