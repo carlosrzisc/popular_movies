@@ -3,5 +3,6 @@
     "takingLong": "This is taking a bit longer than expected.\nPlease be patient.",
     "genericError": "Something went wrong. Make sure you are connected to the internet and try again.",
     "noInternet": "No internet connection. Please check your connection and try again.",
-    "reload": "Reload"
+    "reload": "Reload",
+    "searchMovies": "Search Movies"
 }

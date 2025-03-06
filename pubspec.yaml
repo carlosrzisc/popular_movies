@@ -26,6 +26,8 @@ dependencies:
   app_storage: ^0.0.1
   lottie: ^3.3.1
   rxdart: ^0.28.0
+  hive_ce: ^2.10.1
+  hive_ce_flutter: ^2.2.0
 
 workspace:
   - packages/movies_api
@@ -44,6 +46,7 @@ dev_dependencies:
   mocktail: ^1.0.0
   very_good_analysis: ^7.0.0
   freezed: ^3.0.3
+  hive_ce_generator: ^1.8.2
 
 flutter:
   uses-material-design: true

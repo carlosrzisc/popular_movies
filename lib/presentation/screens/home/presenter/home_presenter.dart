@@ -6,6 +6,7 @@ import 'package:movies_api/movies_api.dart';
 import 'package:popular_movies/app/routing/app_router.dart';
 import 'package:popular_movies/presentation/screens/home/bloc/home_bloc.dart';
 import 'package:popular_movies/presentation/screens/home/view/widgets/movies_gridview.dart';
+import 'package:popular_movies/presentation/screens/home/view/widgets/movies_input_search.dart';
 import 'package:popular_movies/presentation/theme/app_colors.dart';
 import 'package:popular_movies/presentation/utilities/extensions/context_extensions.dart';
 import 'package:popular_movies/presentation/widgets/loading/loading_screen.dart';
@@ -39,15 +40,33 @@ class HomePresenter extends StatelessWidget {
                 if (state is LoadInProgress) ...[
                   const LoadingScreen(),
                 ] else if (state is LoadMoviesSuccess) ...[
-                  OrientationBuilder(
-                    builder: (context, orientation) {
-                      return MoviesGridView(
-                        state.movies,
-                        onItemTap: (movie) => _onMovieSelected(context, movie),
-                        columnsCount:
-                            orientation == Orientation.landscape ? 4 : 2,
-                      );
-                    },
+                  Stack(
+                    children: [
+                      OrientationBuilder(
+                        builder: (context, orientation) {
+                          return MoviesGridView(
+                            state.movies,
+                            onItemTap:
+                                (movie) => _onMovieSelected(context, movie),
+                            columnsCount:
+                                orientation == Orientation.landscape ? 4 : 2,
+                          );
+                        },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 60, 15, 0),
+                        child: MoviesInputSearch(
+                          onSearch:
+                              (text) => context.read<HomeBloc>().add(
+                                HomeEvent.search(text),
+                              ),
+                          onClear:
+                              () => context.read<HomeBloc>().add(
+                                const HomeEvent.load(),
+                              ),
+                        ),
+                      ),
+                    ],
                   ),
                 ] else if (state is LoadMoviesFailure) ...[
                   Column(

@@ -2,13 +2,15 @@ import 'dart:async';
 
 import 'package:injectable/injectable.dart';
 import 'package:movies_api/movies_api.dart';
+import 'package:popular_movies/domain/movies_database.dart';
 import 'package:popular_movies/domain/movies_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 @LazySingleton(as: MoviesRepository)
 class MoviesRepositoryImpl implements MoviesRepository {
-  MoviesRepositoryImpl(this._moviesApi);
+  MoviesRepositoryImpl(this._moviesApi, this._database);
   final MoviesApi _moviesApi;
+  final MoviesDatabase _database;
   final _moviesStreamController = BehaviorSubject<List<TMovie>>();
   int page = 1;
   bool hasReachedMax = false;
@@ -38,8 +40,12 @@ class MoviesRepositoryImpl implements MoviesRepository {
 
       final allMovies = <TMovie>{...currentList, ...movies}.toList();
       _moviesStreamController.add(allMovies);
+      _database.saveAll(movies);
     } catch (e) {
       _moviesStreamController.addError(e);
     }
   }
+
+  @override
+  Future<List<TMovie>> search(String query) => _database.search(query);
 }

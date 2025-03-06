@@ -19,4 +19,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reload => 'Reload';
+
+  @override
+  String get searchMovies => 'Search Movies';
 }

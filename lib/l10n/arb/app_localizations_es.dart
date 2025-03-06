@@ -19,4 +19,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get reload => 'Reintentar';
+
+  @override
+  String get searchMovies => 'Buscar Películas';
 }
