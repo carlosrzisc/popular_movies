@@ -28,8 +28,16 @@ This project is structured following the principles of Clean Architecture, which
 
 Once you have generated your project, make sure to execute the following steps to complete the project setup:
 
+1. Build local packages.
+    1. ```cd packages/movies_api```
+    2. ```flutter pub get```
+    3. ```flutter pub run build_runner build --delete-conflicting-outputs```
+    4. ```cd packages/app_storage```
+    5. ```flutter pub get```
+    6. ```flutter pub run build_runner build --delete-conflicting-outputs```
 1. From a terminal, run the following commands:
     1. ```flutter pub get```
+    2. ```dart run build_runner clean```
     2. ```flutter pub run build_runner build --delete-conflicting-outputs```
 2. Add your API KEY: This project requires an api key to be used to fetch the movies. 
     1. Get an api key from https://www.themoviedb.org/settings/api.
