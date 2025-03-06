@@ -9,6 +9,7 @@ class GenresRepositoryImpl implements GenresRepository {
 
   @override
   Future<List<Genre>> get genres async {
+    /// Fetch the genres from the API
     final response = await _moviesApi.getGenres();
     return response.genres ?? <Genre>[];
   }
