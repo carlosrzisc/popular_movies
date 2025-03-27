@@ -11,7 +11,7 @@ class MoviePosterImage extends StatelessWidget {
     return image != null
         ? Hero(
           tag: 'image-${movie.id}',
-          child: Image(image: CachedNetworkImageProvider(image)),
+          child: CachedNetworkImage(imageUrl: image),
         )
         : const SizedBox.shrink();
   }
