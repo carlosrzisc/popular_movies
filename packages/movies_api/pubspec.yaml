@@ -5,20 +5,20 @@ publish_to: 'none'
 resolution: workspace
 
 environment:
-  sdk: ^3.7.0
+  sdk: ^3.9.2
 
 dependencies:
   dio: ^5.8.0+1
   retrofit: ^4.4.2
-  dio_cache_interceptor: ^3.5.1
+  dio_cache_interceptor: ^4.0.3
   json_annotation: ^4.9.0
   freezed_annotation: ^3.0.0
 
 dev_dependencies:
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   build_runner: ^2.4.15
   freezed: ^3.0.3
   json_serializable: ^6.9.4
-  retrofit_generator: ^9.1.9
-  very_good_analysis: ^7.0.0
+  retrofit_generator: ^10.0.5
+  very_good_analysis: ^10.0.0
 

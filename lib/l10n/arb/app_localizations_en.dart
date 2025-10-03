@@ -9,13 +9,16 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get takingLong => 'This is taking a bit longer than expected.\nPlease be patient.';
+  String get takingLong =>
+      'This is taking a bit longer than expected.\nPlease be patient.';
 
   @override
-  String get genericError => 'Something went wrong. Make sure you are connected to the internet and try again.';
+  String get genericError =>
+      'Something went wrong. Make sure you are connected to the internet and try again.';
 
   @override
-  String get noInternet => 'No internet connection. Please check your connection and try again.';
+  String get noInternet =>
+      'No internet connection. Please check your connection and try again.';
 
   @override
   String get reload => 'Reload';
