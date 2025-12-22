@@ -27,14 +27,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     await emit.forEach<List<TMovie>>(
       _moviesRepository.movies,
       onData: HomeState.loadSuccess,
-      onError: (error, stackTrace) => const HomeState.loadFailure(),
+      onError: (error, stackTrace) => const .loadFailure(),
     );
   }
 
   void _onLoad(_Load event, Emitter<HomeState> emit) {
     if (state is LoadInProgress) return;
 
-    emit(const HomeState.loadInProgress());
+    emit(const .loadInProgress());
 
     /// request the repository to load the next page of movies
     _moviesRepository.loadMore();
@@ -44,8 +44,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _SearchMovie event,
     Emitter<HomeState> emit,
   ) async {
-    emit(const HomeState.loadInProgress());
+    emit(const .loadInProgress());
     final movies = await _moviesRepository.search(event.query);
-    emit(HomeState.loadSuccess(movies));
+    emit(.loadSuccess(movies));
   }
 }

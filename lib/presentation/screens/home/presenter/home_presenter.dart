@@ -17,11 +17,9 @@ class HomePresenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create:
-          (context) =>
-              GetIt.I.get<HomeBloc>()
-                ..add(const HomeEvent.subscriptionRequested())
-                ..add(const HomeEvent.load()),
+      create: (context) => GetIt.I.get<HomeBloc>()
+        ..add(const .subscriptionRequested())
+        ..add(const .load()),
       child: BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {
           switch (state) {
@@ -46,24 +44,19 @@ class HomePresenter extends StatelessWidget {
                         builder: (context, orientation) {
                           return MoviesGridView(
                             state.movies,
-                            onItemTap:
-                                (movie) => _onMovieSelected(context, movie),
-                            columnsCount:
-                                orientation == Orientation.landscape ? 4 : 2,
+                            onItemTap: (movie) =>
+                                _onMovieSelected(context, movie),
+                            columnsCount: orientation == .landscape ? 4 : 2,
                           );
                         },
                       ),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(15, 60, 15, 0),
                         child: MoviesInputSearch(
-                          onSearch:
-                              (text) => context.read<HomeBloc>().add(
-                                HomeEvent.search(text),
-                              ),
-                          onClear:
-                              () => context.read<HomeBloc>().add(
-                                const HomeEvent.load(),
-                              ),
+                          onSearch: (text) =>
+                              context.read<HomeBloc>().add(.search(text)),
+                          onClear: () =>
+                              context.read<HomeBloc>().add(const .load()),
                         ),
                       ),
                     ],
@@ -80,9 +73,8 @@ class HomePresenter extends StatelessWidget {
                         ),
                       ),
                       FilledButton(
-                        onPressed:
-                            () =>
-                                context.read<HomeBloc>().add(HomeEvent.load()),
+                        onPressed: () =>
+                            context.read<HomeBloc>().add(const .load()),
                         child: Text(context.l10n.reload),
                       ),
                     ],

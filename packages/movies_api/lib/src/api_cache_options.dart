@@ -14,5 +14,5 @@ final cacheOptions = CacheOptions(
   // desired.
   // Defaults to [null].
   maxStale: const Duration(days: 180),
-  policy: CachePolicy.forceCache,
+  policy: .forceCache,
 );

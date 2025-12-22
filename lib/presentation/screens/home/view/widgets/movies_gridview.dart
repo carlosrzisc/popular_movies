@@ -37,25 +37,24 @@ class _MoviesGridViewState extends State<MoviesGridView> {
         crossAxisSpacing: 10,
         childAspectRatio: 0.63,
       ),
-      padding: const EdgeInsets.only(top: 130),
-      itemBuilder:
-          (_, index) => Column(
-            children: [
-              Expanded(
-                child: MovieItem(
-                  widget.movies[index],
-                  onTap: () => widget.onItemTap?.call(widget.movies[index]),
-                ),
-              ),
-            ],
+      padding: const .only(top: 130),
+      itemBuilder: (_, index) => Column(
+        children: [
+          Expanded(
+            child: MovieItem(
+              widget.movies[index],
+              onTap: () => widget.onItemTap?.call(widget.movies[index]),
+            ),
           ),
+        ],
+      ),
       controller: _scrollController,
     );
   }
 
   void _onScroll(BuildContext context) {
     if (_isBottom) {
-      context.read<HomeBloc>().add(const HomeEvent.load());
+      context.read<HomeBloc>().add(const .load());
     }
   }
 

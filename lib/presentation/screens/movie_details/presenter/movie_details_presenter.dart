@@ -25,7 +25,7 @@ class MovieDetailsPresenter extends StatelessWidget {
             Align(
               alignment: Alignment.topRight,
               child: Padding(
-                padding: const EdgeInsets.all(10),
+                padding: const .all(10),
                 child: ClipOval(
                   child: ColoredBox(
                     color: AppColors.black.withAlpha(128),

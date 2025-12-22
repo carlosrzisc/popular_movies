@@ -22,12 +22,12 @@ class _MoviesInputSearchState extends State<MoviesInputSearch> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: ThemeData.light(),
+      data: .light(),
       child: Card(
         elevation: 6,
         shape: ShapeBorder.lerp(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          RoundedRectangleBorder(borderRadius: .circular(25)),
+          RoundedRectangleBorder(borderRadius: .circular(25)),
           1,
         ),
         child: TextField(
@@ -35,10 +35,7 @@ class _MoviesInputSearchState extends State<MoviesInputSearch> {
           onChanged: _onChanged,
           decoration: InputDecoration(
             hintText: context.l10n.searchMovies,
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 5,
-            ),
+            contentPadding: .symmetric(horizontal: 20, vertical: 5),
             filled: true,
             suffixIcon: IconButton(
               icon: const Icon(Icons.close),
@@ -49,8 +46,8 @@ class _MoviesInputSearchState extends State<MoviesInputSearch> {
             ),
             fillColor: Theme.of(context).textTheme.bodyMedium?.color,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(25),
-              borderSide: BorderSide.none,
+              borderRadius: .circular(25),
+              borderSide: .none,
             ),
           ),
         ),
